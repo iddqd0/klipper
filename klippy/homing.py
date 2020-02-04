@@ -117,9 +117,8 @@ class Homing:
             self.toolhead.set_position(movepos)
         if bltouch:
             if pwroff:
-                print_time = self.toolhead.get_last_move_time()
                 for heater in heaters.values():
-                    heater.set_temp(print_time, heater.target_store)
+                    heater.set_temp(heater.target_store)
             if (hsmode < 2) or need_stow:
                 probe_instance.stow_probe(nocheck=(hsmode >= 1))
         # Signal homing complete
