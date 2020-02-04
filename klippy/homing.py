@@ -60,10 +60,9 @@ class Homing:
             if pwroff:
                 p_heaters = self.printer.lookup_object('heater')
                 heaters = p_heaters.heaters
-                print_time = self.toolhead.get_last_move_time()
                 for heater in heaters.values():
                     heater.target_store = heater.target_temp
-                    heater.set_temp(print_time, 0.)
+                    heater.set_temp(0.)
             if hasattr(probe_instance, 'hsmode'):
                 hsmode = probe_instance.hsmode
             else:
